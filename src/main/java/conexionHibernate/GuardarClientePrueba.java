@@ -13,11 +13,25 @@ public class GuardarClientePrueba {
 		Session miSession = miFactory.openSession();
 
 		try {
-			Clientes cliente1 = new Clientes("Juan", "Dominguez", "siempreViva");
+			Clientes cliente1 = new Clientes("Sandra", "Delgado", "Golla");
 			miSession.beginTransaction();
 			miSession.save(cliente1);
 			miSession.getTransaction().commit();
 			System.out.println("Registro incertado de forma exitosa en la BBDD");
+			miSession.beginTransaction();
+
+			System.out.println("Lectura del registro con Id: " + cliente1.getId());
+
+			Clientes clienteInsertado = miSession.get(Clientes.class, cliente1.getId());
+			System.out.println("Registro: " + clienteInsertado);
+			miSession.getTransaction().commit();
+			System.out.println("Terminado!");
+
+			System.out.println("Id: " + cliente1.getId());
+			System.out.println("Nombre: " + cliente1.getNombre());
+			System.out.println("Apellidos: " + cliente1.getApellidos());
+			System.out.println("Direccion: " + cliente1.getDireccion());
+
 			miSession.close();
 		} finally {
 			miFactory.close();
