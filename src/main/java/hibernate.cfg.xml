@@ -9,14 +9,10 @@
     	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     	<property name="connection.url">jdbc:mysql://localhost:3306/pruebasHibernate?useSSL=false</property>
 
-		 <! - Hibernate configuración básica->
-		 <! - Dialecto de base de datos utilizado por Hibernate->
 		<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
 	
-		 <! - Si se imprime SQL en tiempo de ejecución->
     	<property name="show_sql">true</property>
     
-    	     <! - Si formatear SQL en tiempo de ejecución->
     	<property name="format_sql">true</property>
 
     </session-factory>
